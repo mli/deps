@@ -7,7 +7,7 @@
 #
 
 # set -x
-dir=$PWD/`dirname $0`
+dir=$PWD
 if [ -z "$install_dir" ]; then
     install_dir=$dir
 fi
