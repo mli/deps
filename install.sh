@@ -25,7 +25,7 @@ st_install() {
     echo "Install $1 to $install_dir"
     rm -f $3
     cd $dir/build/$2
-    ./configure -prefix=$install_dir >>$3
+    ./configure -prefix=$install_dir $4 >>$3
     make -j $nthreads &>>$3
     make install >>$3
     if [ $? -ne 0 ]; then
@@ -59,7 +59,7 @@ install_protobuf() {
 }
 
 install_glog() {
-    st_install glog-0.3.3.tar.gz glog-0.3.3 $dir/glog.log
+    st_install glog-0.3.3.tar.gz glog-0.3.3 $dir/glog.log --with-gflags=$install_dir
 }
 
 install_zmq() {
